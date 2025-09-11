@@ -220,9 +220,114 @@ export default function FoodieLanding() {
 
             </section>
 
+
+            {/* Contact Us Section */}
+            <section className="bg-blue-400 text-white py-12 px-6 max-w-4xl mx-auto rounded-lg mt-12">
+                <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
+                <form
+                    className="max-w-xl mx-auto flex flex-col space-y-4"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        const name = e.target.name.value.trim();
+                        const email = e.target.email.value.trim();
+                        const message = e.target.message.value.trim();
+                        if (!name || !email || !message) {
+                            alert("Please fill in all fields.");
+                            return;
+                        }
+                        // Save message to localStorage
+                        const savedMessages = JSON.parse(localStorage.getItem("contactMessages") || "[]");
+                        savedMessages.push({ name, email, message, date: new Date().toISOString() });
+                        localStorage.setItem("contactMessages", JSON.stringify(savedMessages));
+                        alert("Message sent successfully!");
+                        e.target.reset();
+                    }}
+                >
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        className="p-3 rounded text-whit-900 border-2 rounded-lg border-white"
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        className="p-3 rounded text-white-900 border-2 rounded-lg border-white"
+                        required
+                    />
+                    <textarea
+                        name="message"
+                        placeholder="Your Message"
+                        rows={4}
+                        className="p-3 rounded text-white-900 resize-none border-2 rounded-lg border-white"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        className="bg-yellow-400 text-blue-900 font-bold py-3 rounded hover:bg-yellow-300 transition"
+                    >
+                        Send Message
+                    </button>
+                </form>
+            </section>
+
             {/* Footer */}
-            <footer className="bg-blue-900 text-white text-center py-6 mt-12">
-                <p>&copy; 2025 Foodie. All rights reserved.</p>
+            <footer className="bg-blue-900 text-white text-center py-10 mt-12">
+                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="font-bold mb-4 text-yellow-400">Quick Links</h3>
+                        <ul className="space-y-2">
+                            <li>
+                                <a href="#home" className="hover:text-yellow-400">Home</a>
+                            </li>
+                            <li>
+                                <a href="#shop" className="hover:text-yellow-400">Shop</a>
+                            </li>
+                            <li>
+                                <a href="#about" className="hover:text-yellow-400">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#contact" className="hover:text-yellow-400">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Social Media */}
+                    <div>
+                        <h3 className="font-bold mb-4 text-yellow-400">Follow Us</h3>
+                        <ul className="flex space-x-4 justify-center md:justify-start">
+                            <li>
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div>
+                        <h3 className="font-bold mb-4 text-yellow-400">Legal</h3>
+                        <ul className="space-y-2">
+                            <li>
+                                <a href="#privacy" className="hover:text-yellow-400">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#terms" className="hover:text-yellow-400">Terms of Service</a>
+                            </li>
+                        </ul>
+                        <p className="mt-6 text-sm text-gray-300">&copy; 2025 Foodie. All rights reserved.</p>
+                    </div>
+                </div>
             </footer>
         </div>
     );
