@@ -7,13 +7,12 @@ export default function FoodieLanding() {
 
     return (
         <div className="font-sans bg-white text-gray-800">
-            {/* Navbar */}
+
             <nav className="bg-blue-900 text-white fixed w-full top-0 z-50 shadow-md">
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-                    {/* Logo */}
+
                     <div className="text-2xl font-bold text-yellow-400">Foodie</div>
 
-                    {/* Links */}
                     <ul className="hidden md:flex space-x-8">
                         <li>
                             <a href="#home" className="hover:text-yellow-400">
@@ -27,7 +26,6 @@ export default function FoodieLanding() {
                         </li>
                     </ul>
 
-                    {/* Toggle Button (Mobile) */}
                     <button
                         className="md:hidden text-yellow-400 text-3xl"
                         onClick={() => setIsOpen(!isOpen)}
@@ -36,7 +34,6 @@ export default function FoodieLanding() {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {isOpen && (
                     <ul className="md:hidden bg-blue-800 text-white flex flex-col space-y-4 py-4 px-6">
                         <li>
@@ -53,7 +50,6 @@ export default function FoodieLanding() {
                 )}
             </nav>
 
-            {/* Hero Section */}
             <section
                 id="home"
                 className="pt-24 text-center bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-6"
@@ -73,12 +69,9 @@ export default function FoodieLanding() {
                 </a>
             </section>
 
-            {/* Why Choose Us */}
             <section className="py-16 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
-                {/* Ordering Card */}
                 <img src={download} alt="" width={400} />
 
-                {/* Reasons */}
                 <div>
                     <ul className="space-y-4">
                         <li className="flex items-start">
@@ -112,7 +105,6 @@ export default function FoodieLanding() {
                 </div>
             </section>
 
-            {/* About Us */}
             <section
                 id="about"
                 className="py-16 bg-blue-50 text-center px-6 max-w-5xl mx-auto"
@@ -132,7 +124,6 @@ export default function FoodieLanding() {
                 </p>
             </section>
 
-            {/* Our Team */}
             <section className="py-16 max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-blue-900 mb-10">Meet Our Team</h2>
                 <div className="grid md:grid-cols-3 gap-8">
@@ -166,7 +157,6 @@ export default function FoodieLanding() {
                 </div>
             </section>
 
-            {/* Testimonials */}
             <section className="py-16 bg-blue-50 text-center">
                 <div class="py-16 bg-blue-50 text-center">
                     <h2 class="text-3xl font-bold text-blue-900 mb-10">
@@ -221,7 +211,6 @@ export default function FoodieLanding() {
             </section>
 
 
-            {/* Contact Us Section */}
             <section className="bg-blue-400 text-white py-12 px-6 max-w-4xl mx-auto rounded-lg mt-12">
                 <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
                 <form
@@ -235,7 +224,7 @@ export default function FoodieLanding() {
                             alert("Please fill in all fields.");
                             return;
                         }
-                        // Save message to localStorage
+                        
                         const savedMessages = JSON.parse(localStorage.getItem("contactMessages") || "[]");
                         savedMessages.push({ name, email, message, date: new Date().toISOString() });
                         localStorage.setItem("contactMessages", JSON.stringify(savedMessages));
@@ -273,7 +262,6 @@ export default function FoodieLanding() {
                 </form>
             </section>
 
-            {/* Footer */}
             <footer className="bg-blue-900 text-white text-center py-10 mt-12">
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
                     {/* Quick Links */}
@@ -295,7 +283,6 @@ export default function FoodieLanding() {
                         </ul>
                     </div>
 
-                    {/* Social Media */}
                     <div>
                         <h3 className="font-bold mb-4 text-yellow-400">Follow Us</h3>
                         <ul className="flex space-x-4 justify-center md:justify-start">
@@ -314,7 +301,6 @@ export default function FoodieLanding() {
                         </ul>
                     </div>
 
-                    {/* Legal */}
                     <div>
                         <h3 className="font-bold mb-4 text-yellow-400">Legal</h3>
                         <ul className="space-y-2">
