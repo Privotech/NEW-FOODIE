@@ -55,7 +55,7 @@ export default function FoodieLanding() {
                 className="pt-24 text-center bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-6"
             >
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Delicious Food Delivered Fast 🍔
+                    Delicious Food Delivered Fast
                 </h1>
                 <p className="max-w-2xl mx-auto text-lg mb-6">
                     Order your favorite meals and snacks with a single click! Fresh, tasty,
