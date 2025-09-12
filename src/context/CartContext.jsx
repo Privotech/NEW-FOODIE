@@ -26,6 +26,8 @@ export const CartProvider = ({ children }) => {
     { id: 16, name: "Tuwo Shinkafa", price: 2000, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTuwon_shinkafa&psig=AOvVaw1G-Bdu39FfSys9buxBfL9T&ust=1757776545297000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPj18IXC048DFQAAAAAdAAAAABAN" },
     { id: 17, name: "Egusi soup", price: 1900, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fallnigerianfoods.com%2Fnigerian-egusi-soup%2F&psig=AOvVaw0TR3hKurhbjp4pHTJ4_aFG&ust=1757776587365000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOjaoJrC048DFQAAAAAdAAAAABAE" },
     { id: 18, name: "Oha Soup", price: 1900, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fallnigerianfoods.com%2Fuha-soup%2F&psig=AOvVaw2-IWQVbQQ9nlPdQ0fdYKtO&ust=1757776605892000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOj1_KLC048DFQAAAAAdAAAAABAE" },
+    { id: 19, name: "Bitterleaf Soup", price: 2000, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allnigerianfoods.com%2Fnigerian-bitter-leaf-soup%2F&psig=AOvVaw1cX4Yc1eX4k7b8jK3m3mJH&ust=1757776629783000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjWqJfD048DFQAAAAAdAAAAABAE" },
+    { id: 20, name: "Catfish Pepper Soup", price: 2200, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.myactivekitchen.com%2Fcatfish-pepper-soup%2F&psig=AOvVaw1cX4Yc1eX4k7b8jK3m3mJH&ust=1757776629783000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjWqJfD048DFQAAAAAdAAAAABAE" },
   ];
 
   const addToCart = (food) => {
