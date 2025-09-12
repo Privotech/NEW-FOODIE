@@ -20,7 +20,7 @@ export default function FoodieLanding() {
                             </a>
                         </li>
                         <li>
-                            <a href="#shop" className="hover:text-yellow-400">
+                            <a href="/shop" className="hover:text-yellow-400">
                                 Shop
                             </a>
                         </li>
