@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import download from "../../public/images/download.jpeg"
+import { Link } from "react-router-dom";
 
 
 export default function FoodieLanding() {
@@ -11,7 +12,7 @@ export default function FoodieLanding() {
             <nav className="bg-blue-900 text-white fixed w-full top-0 z-50 shadow-md">
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
-                    <div className="text-2xl font-bold text-yellow-400">Foodie</div>
+                    <div className="text-2xl font-bold text-yellow-400">FOODIE</div>
 
                     <ul className="hidden md:flex space-x-8">
                         <li>
@@ -20,9 +21,9 @@ export default function FoodieLanding() {
                             </a>
                         </li>
                         <li>
-                            <a href="/shop" className="hover:text-yellow-400">
+                            <Link to="/shop" className="hover:text-yellow-400">
                                 Shop
-                            </a>
+                            </Link>
                         </li>
                     </ul>
 
@@ -61,12 +62,12 @@ export default function FoodieLanding() {
                     Order your favorite meals and snacks with a single click! Fresh, tasty,
                     and delivered to your door.
                 </p>
-                <a
-                    href="#shop"
+                <Link
+                    to="/shop"
                     className="bg-yellow-400 text-blue-900 px-6 py-3 rounded-full text-lg font-semibold shadow hover:bg-yellow-300"
                 >
                     Shop Now
-                </a>
+                </Link>
             </section>
 
             <section className="py-16 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
@@ -150,9 +151,9 @@ export default function FoodieLanding() {
                     >
                         <div className="w-24 h-24 mx-auto rounded-full bg-blue-200 mb-4"></div>
                         <h3 className="text-xl font-semibold text-blue-900">
-                            Privilege Oyegbile
+                            Jackson Oyegbile
                         </h3>
-                        <p className="text-gray-600">CEO</p>
+                        <p className="text-gray-600">Secretary</p>
                     </div>
                 </div>
             </section>
@@ -236,21 +237,21 @@ export default function FoodieLanding() {
                         type="text"
                         name="name"
                         placeholder="Your Name"
-                        className="p-3 rounded text-whit-900 border-2 rounded-lg border-white"
+                        className="p-3 text-whit-900 border-2 rounded-lg border-white"
                         required
                     />
                     <input
                         type="email"
                         name="email"
                         placeholder="Your Email"
-                        className="p-3 rounded text-white-900 border-2 rounded-lg border-white"
+                        className="p-3 text-white-900 border-2 rounded-lg border-white"
                         required
                     />
                     <textarea
                         name="message"
                         placeholder="Your Message"
                         rows={4}
-                        className="p-3 rounded text-white-900 resize-none border-2 rounded-lg border-white"
+                        className="p-3 text-white-900 resize-none border-2 rounded-lg border-white"
                         required
                     />
                     <button
@@ -264,7 +265,7 @@ export default function FoodieLanding() {
 
             <footer className="bg-blue-900 text-white text-center py-10 mt-12">
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-                    {/* Quick Links */}
+
                     <div>
                         <h3 className="font-bold mb-4 text-yellow-400">Quick Links</h3>
                         <ul className="space-y-2">
