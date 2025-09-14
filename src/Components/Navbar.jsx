@@ -20,8 +20,8 @@ const Navbar = () => {
               placeholder="Search for products, brands and categories"
               className="w-full px-4 py-3 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
-            <button className="absolute top-0 right-0 bg-orange-500 text-white font-bold py-3 px-6 rounded-r-md hover:bg-orange-600">
-              SEARCH
+            <button className="absolute top-0 right-0 bg-orange-500 text-white font-bold py-3 px-3 rounded-r-md hover:bg-orange-600">
+              🔍
             </button>
           </div>
         </div>
