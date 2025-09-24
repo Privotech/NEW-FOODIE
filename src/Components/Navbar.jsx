@@ -7,8 +7,8 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
 
   const { cartItems, handleSearch, filteredFoods } = useCart();
-const uniqueItems = new Set(cartItems.map(item => item.id));
-const cartItemCount = uniqueItems.size;
+  const uniqueItems = new Set(cartItems.map(item => item.id));
+  const cartItemCount = uniqueItems.size;
 
   return (
     <nav className="bg-white border-b-2 border-gray-200 px-4 lg:px-12 py-2.5 fixed w-full top-0 z-20">
@@ -22,8 +22,8 @@ const cartItemCount = uniqueItems.size;
             <input
               value={query}
               onChange={(e) => {
-                setQuery(e.target.value), 
-                handleSearch(e);
+                setQuery(e.target.value),
+                  handleSearch(e);
               }}
               onFocus={() => setIsOpen(true)}
               onBlur={() => setIsOpen(false)}
