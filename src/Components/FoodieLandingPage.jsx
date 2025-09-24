@@ -160,8 +160,8 @@ export default function FoodieLanding() {
 
             <section className="py-16 bg-blue-50 text-center">
                 <div class="py-16 bg-blue-50 text-center">
-                    <h2 class="text-3xl font-bold text-blue-900 mb-10">
-                        What Our Customers Say
+                    <h2 className="text-3xl font-bold text-blue-900 mb-10">
+                    WHAT OUR CUSTOMERS SAY
                     </h2>
 
                     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">

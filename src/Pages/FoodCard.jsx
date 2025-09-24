@@ -23,17 +23,17 @@ const FoodCard = ({ food }) => {
       <img
         src={food.image}
         alt={food.name}
-        className="h-48 w-full object-cover"
+        className="h-68 w-full object-cover"
       />
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{food.name}</h2>
-        <p className="text-gray-600 text-lg">₦{food.price}</p>
+        <p className="text-gray-600 text-lg">₦{food.price}, <span className="text-white bg-yellow-400 px-2">FREE</span></p>
 
         <div className="mt-4">
           {quantity === 0 ? (
             <button
               onClick={handleAddToCart}
-              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 font-bold"
+              className="w-full bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 font-bold"
             >
               Add to Cart
             </button>
@@ -41,14 +41,14 @@ const FoodCard = ({ food }) => {
             <div className="flex items-center justify-center gap-4">
               <button
                 onClick={decreaseQuantity}
-                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 font-bold"
+                className="text-gray-700 px-4 py-2 rounded-lg bg-yellow-400 font-bold"
               >
                 -
               </button>
               <span className="text-xl font-bold">{quantity}</span>
               <button
                 onClick={increaseQuantity}
-                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 font-bold"
+                className="text-gray-700 px-4 py-2 rounded-lg bg-yellow-400 font-bold"
               >
                 +
               </button>

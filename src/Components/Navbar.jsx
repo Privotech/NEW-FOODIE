@@ -1,36 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
-  const { cartItems } = useCart();
-  const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const { cartItems, handleSearch, filteredFoods } = useCart();
+const uniqueItems = new Set(cartItems.map(item => item.id));
+const cartItemCount = uniqueItems.size;
 
   return (
     <nav className="bg-white border-b-2 border-gray-200 px-4 lg:px-12 py-2.5 fixed w-full top-0 z-20">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-3xl font-extrabold text-orange-500">
+        <div className="text-3xl font-extrabold text-yellow-500">
           <Link to="/">FOODIE</Link>
         </div>
 
         <div className="flex-1 px-4 lg:px-16">
           <div className="relative">
             <input
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value), 
+                handleSearch(e);
+              }}
+              onFocus={() => setIsOpen(true)}
+              onBlur={() => setIsOpen(false)}
               type="text"
               placeholder="Search for products, brands and categories"
-              className="w-full px-4 py-3 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-3 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
-            <button className="absolute top-0 right-0 bg-orange-500 text-white font-bold py-3 px-3 rounded-r-md hover:bg-orange-600">
+            <div className="absolute w-full">
+              {isOpen && (
+                <div className="border bg-gray-100 w-full p-2">
+                  <ul>
+                    {filteredFoods.map((item, i) => (
+                      <li key={i} className="">
+                        {item.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            <button className="absolute top-0 right-0 bg-yellow-500 text-white font-bold py-3 px-3 rounded-r-md hover:bg-yellow-600">
               🔍
             </button>
           </div>
         </div>
 
         <div className="flex items-center gap-6">
-          <Link to="/shop" className="text-gray-800 hover:text-orange-500 transition font-semibold">Shop</Link>
+          <Link
+            to="/shop"
+            className="text-gray-800 hover:text-yellow-500 transition font-semibold"
+          >
+            Shop
+          </Link>
           <Link
             to="/cart"
-            className="relative text-gray-800 hover:text-orange-500 transition"
+            className="relative text-gray-800 hover:text-yellow-500 transition"
             aria-label="Cart"
           >
             <svg
@@ -48,7 +77,7 @@ const Navbar = () => {
               ></path>
             </svg>
             {cartItemCount > 0 && (
-              <span className="absolute -top-2 -right-3 bg-orange-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+              <span className="absolute -top-2 -right-3 bg-yellow-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
                 {cartItemCount}
               </span>
             )}
