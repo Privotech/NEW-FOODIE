@@ -1,4 +1,3 @@
-import React from 'react';
 import FoodList from './FoodList';
 import Navbar from '../Components/Navbar';
 
