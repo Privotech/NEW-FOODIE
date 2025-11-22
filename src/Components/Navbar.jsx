@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const wrapperRef = useRef(null);
 
-  const { cartItems, handleSearch, filteredFoods } = useCart();
-  const uniqueItems = new Set(cartItems.map(item => item.id));
-  const cartItemCount = uniqueItems.size;
+  const { cartItems, handleSearch, filteredFoods, query, setQuery } = useCart();
+  const cartItemCount = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 0),
+    0
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [wrapperRef]);
 
   return (
     <nav className="bg-white border-b-2 border-gray-200 px-4 lg:px-12 py-2.5 fixed w-full top-0 z-20">
@@ -18,15 +31,13 @@ const Navbar = () => {
         </div>
 
         <div className="flex-1 px-4 lg:px-16">
-          <div className="relative">
+          <div className="relative" ref={wrapperRef}>
             <input
               value={query}
               onChange={(e) => {
-                setQuery(e.target.value),
-                  handleSearch(e);
+                handleSearch(e);
               }}
               onFocus={() => setIsOpen(true)}
-              onBlur={() => setIsOpen(false)}
               type="text"
               placeholder="Search for products, brands and categories"
               className="w-full px-4 py-3 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500"
@@ -35,8 +46,16 @@ const Navbar = () => {
               {isOpen && (
                 <div className="border bg-gray-100 w-full p-2">
                   <ul>
-                    {filteredFoods.map((item, i) => (
-                      <li key={i} className="">
+                    {filteredFoods.map((item) => (
+                      <li
+                        key={item.id}
+                        className="cursor-pointer px-2 py-1 hover:bg-yellow-100"
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          setQuery(item.name);
+                          setIsOpen(false);
+                        }}
+                      >
                         {item.name}
                       </li>
                     ))}
